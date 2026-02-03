@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const MotionDiv = motion.div as any;
+const MotionP = motion.p as any;
+
 const services = [
   {
     title: "Interior Restoration",
@@ -26,37 +29,37 @@ const Services: React.FC = () => {
   return (
     <section className="w-full max-w-[1400px] mx-auto px-6 md:px-20 py-32" id="services">
       <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <MotionDiv
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col gap-6"
         >
           <span className="text-primary font-bold uppercase tracking-[0.5em] text-[10px]">
             Curated Services
           </span>
           <h2 className="text-white text-5xl md:text-6xl font-serif">The Collection</h2>
-        </motion.div>
-        <motion.p
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        </MotionDiv>
+        <MotionP
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-white/40 max-w-[450px] font-light text-lg leading-relaxed"
         >
           Redefining automotive preservation through technical mastery and obsessive attention to detail.
-        </motion.p>
+        </MotionP>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
         {services.map((service, idx) => (
-          <motion.div
+          <MotionDiv
             key={idx}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: idx * 0.2 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.9, delay: idx * 0.2, ease: "easeOut" }}
             className="group flex flex-col bg-transparent"
           >
             <div className="relative aspect-[3/4] overflow-hidden mb-8">
@@ -79,7 +82,7 @@ const Services: React.FC = () => {
                 {service.desc}
               </p>
             </div>
-          </motion.div>
+          </MotionDiv>
         ))}
       </div>
     </section>

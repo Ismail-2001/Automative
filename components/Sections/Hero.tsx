@@ -1,6 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const MotionSpan = motion.span as any;
+const MotionP = motion.p as any;
+const MotionDiv = motion.div as any;
+
 const Hero: React.FC = () => {
   return (
     <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
@@ -21,19 +25,19 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-20 max-w-[1200px] px-6 text-center">
-        <motion.span
+        <MotionSpan
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-primary/80 text-[10px] font-bold uppercase tracking-[0.6em] mb-8 block"
         >
           The Pinnacle of Care
-        </motion.span>
+        </MotionSpan>
 
         <h1 className="text-white text-5xl md:text-8xl font-serif leading-[1.1] mb-10 overflow-hidden flex flex-col items-center">
           <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-8">
             {["The", "Art", "of"].map((word, i) => (
-              <motion.span
+              <MotionSpan
                 key={i}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -41,12 +45,12 @@ const Hero: React.FC = () => {
                 className="inline-block"
               >
                 {word}
-              </motion.span>
+              </MotionSpan>
             ))}
           </div>
           <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-8">
             {["Automotive", "Perfection."].map((word, i) => (
-              <motion.span
+              <MotionSpan
                 key={i}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -54,22 +58,22 @@ const Hero: React.FC = () => {
                 className="inline-block"
               >
                 {word}
-              </motion.span>
+              </MotionSpan>
             ))}
           </div>
         </h1>
 
         <div className="flex flex-col items-center gap-12">
-          <motion.p
+          <MotionP
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
             className="text-white/60 text-xs md:text-sm font-light uppercase tracking-[0.4em] max-w-[600px] leading-relaxed"
           >
             Bespoke mobile detailing for those who demand excellence.
-          </motion.p>
+          </MotionP>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.5 }}
@@ -81,12 +85,12 @@ const Hero: React.FC = () => {
                 Book Your Experience
               </span>
             </button>
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
@@ -96,7 +100,7 @@ const Hero: React.FC = () => {
         <div className="w-[1px] h-16 bg-white/10 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-primary animate-scroll-ping"></div>
         </div>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 };

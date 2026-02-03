@@ -2,6 +2,11 @@ import React from 'react';
 import { Phone, Mail, Search, Crosshair } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const MotionSpan = motion.span as any;
+const MotionH2 = motion.h2 as any;
+const MotionLi = motion.li as any;
+const MotionDiv = motion.div as any;
+
 const locations = [
   "Beverly Hills & Bel-Air",
   "Malibu Estates",
@@ -15,22 +20,24 @@ const ServiceArea: React.FC = () => {
     <section className="w-full max-w-[1400px] mx-auto px-6 md:px-20 py-32 border-t border-white/5 overflow-hidden" id="service-area">
       <div className="flex flex-col gap-12">
         <div className="text-center md:text-left">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-primary font-bold uppercase tracking-[0.5em] text-[10px] mb-4 block"
-          >
-            Our Reach
-          </motion.span>
-          <motion.h2 
+          <MotionSpan 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-primary font-bold uppercase tracking-[0.5em] text-[10px] mb-4 block"
+          >
+            Our Reach
+          </MotionSpan>
+          <MotionH2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-white text-5xl md:text-6xl font-serif"
           >
             Our Atelier Radius
-          </motion.h2>
+          </MotionH2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mt-8">
@@ -43,19 +50,19 @@ const ServiceArea: React.FC = () => {
               </p>
               <ul className="flex flex-col gap-4 mt-4">
                 {locations.map((loc, idx) => (
-                  <motion.li 
+                  <MotionLi 
                     key={idx}
-                    initial={{ opacity: 0, x: -10 }}
+                    initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
+                    transition={{ delay: idx * 0.15, duration: 0.6, ease: "easeOut" }}
                     className="flex items-center gap-4 group"
                   >
                     <div className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors"></div>
                     <span className="text-white/60 text-[10px] font-bold uppercase tracking-[0.3em] group-hover:text-white transition-colors">
                       {loc}
                     </span>
-                  </motion.li>
+                  </MotionLi>
                 ))}
               </ul>
             </div>
@@ -76,11 +83,11 @@ const ServiceArea: React.FC = () => {
           </div>
 
           {/* Map Column */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+          <MotionDiv 
+            initial={{ opacity: 0, scale: 0.98, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             className="lg:col-span-8 relative group"
           >
             <div className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-auto lg:h-[600px] bg-[#0a0a0a] border border-white/5 overflow-hidden group-hover:border-primary/20 transition-all duration-1000">
@@ -135,7 +142,7 @@ const ServiceArea: React.FC = () => {
                 <span className="text-white/40 text-[10px] tracking-[0.2em] font-light">34.0522° N, 118.2437° W</span>
               </div>
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
     </section>

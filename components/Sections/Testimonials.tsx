@@ -2,6 +2,8 @@ import React from 'react';
 import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const MotionDiv = motion.div as any;
+
 const reviews = [
   {
     quote: "The ceramic coating transformed my 911. The depth of color is now beyond what I thought possible.",
@@ -23,10 +25,11 @@ const reviews = [
 const Testimonials: React.FC = () => {
   return (
     <section className="w-full max-w-[1400px] mx-auto px-6 md:px-20 py-32" id="reviews">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+      <MotionDiv 
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="flex flex-col items-center text-center mb-24 gap-8"
       >
         <span className="text-primary font-bold uppercase tracking-[0.5em] text-[10px]">
@@ -43,16 +46,16 @@ const Testimonials: React.FC = () => {
             <span className="text-white/30 text-[9px] uppercase tracking-[0.3em]">Yelp</span>
           </div>
         </div>
-      </motion.div>
+      </MotionDiv>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {reviews.map((review, idx) => (
-          <motion.div
+          <MotionDiv
             key={idx}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.15, duration: 0.5 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: idx * 0.2, duration: 0.8, ease: "easeOut" }}
             className="bg-white/5 p-12 border border-white/5 hover:border-primary/20 transition-all duration-700 group"
           >
             <div className="text-primary flex gap-1 mb-8">
@@ -71,7 +74,7 @@ const Testimonials: React.FC = () => {
                 {review.car}
               </p>
             </div>
-          </motion.div>
+          </MotionDiv>
         ))}
       </div>
     </section>

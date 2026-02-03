@@ -1,13 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const MotionDiv = motion.div as any;
+
 const Booking: React.FC = () => {
   return (
     <section className="w-full max-w-[1400px] mx-auto px-6 md:px-20 py-24 mb-24">
-      <motion.div 
-        initial={{ opacity: 0, y: 40 }}
+      <MotionDiv 
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 1.0, ease: "easeOut" }}
         className="bg-gradient-to-br from-neutral-900 to-black border border-white/5 p-16 md:p-32 flex flex-col items-center text-center gap-12 relative overflow-hidden"
       >
         {/* Glow effect */}
@@ -28,7 +31,7 @@ const Booking: React.FC = () => {
             <span className="relative z-10">Portfolio</span>
           </button>
         </div>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 };
