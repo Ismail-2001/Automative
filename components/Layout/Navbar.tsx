@@ -43,22 +43,25 @@ const Navbar: React.FC = () => {
   const menuVariants = {
     initial: { 
       opacity: 0,
-      clipPath: "inset(0 0 100% 0)"
+      clipPath: "inset(0 0 100% 0)",
+      scale: 0.96
     },
     animate: { 
       opacity: 1,
       clipPath: "inset(0 0 0% 0)",
+      scale: 1,
       transition: { 
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1] // Ease Out Expo
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1] // Custom refined bezier for premium feel
       }
     },
     exit: { 
       opacity: 0,
       clipPath: "inset(0 0 100% 0)",
+      scale: 0.96,
       transition: { 
-        duration: 0.4,
-        ease: [0.16, 1, 0.3, 1]
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };
@@ -66,8 +69,8 @@ const Navbar: React.FC = () => {
   const containerVariants = {
     animate: {
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
+        staggerChildren: 0.12,
+        delayChildren: 0.3
       }
     },
     exit: {
@@ -79,14 +82,14 @@ const Navbar: React.FC = () => {
   };
 
   const itemVariants = {
-    initial: { y: 40, opacity: 0 },
+    initial: { y: 30, opacity: 0 },
     animate: { 
       y: 0, 
       opacity: 1,
       transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
     },
     exit: { 
-      y: 20, 
+      y: 10, 
       opacity: 0,
       transition: { duration: 0.4, ease: "easeIn" }
     }
@@ -145,6 +148,7 @@ const Navbar: React.FC = () => {
             animate="animate"
             exit="exit"
             className="fixed inset-0 bg-obsidian z-40 flex flex-col items-center pt-32 pb-12 px-6 lg:hidden overflow-y-auto"
+            style={{ transformOrigin: "top" }}
           >
             {/* Background Texture */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05)_0%,rgba(0,0,0,0)_70%)] pointer-events-none"></div>
