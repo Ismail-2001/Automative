@@ -3,6 +3,7 @@ import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const MotionDiv = motion.div as any;
+const MotionSpan = motion.span as any;
 
 const reviews = [
   {
@@ -21,6 +22,43 @@ const reviews = [
     car: "Range Rover Autobiography"
   }
 ];
+
+const cardVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 40,
+    borderColor: 'rgba(255, 255, 255, 0.05)',
+    boxShadow: '0 0 0 rgba(212, 175, 55, 0)'
+  },
+  visible: (i: number) => ({ 
+    opacity: 1, 
+    y: 0,
+    borderColor: 'rgba(212, 175, 55, 0.15)', // Subtle gold border on entry
+    boxShadow: '0 0 20px rgba(212, 175, 55, 0.05)', // Subtle glow
+    transition: { 
+      delay: i * 0.2, 
+      duration: 0.8, 
+      ease: [0.22, 1, 0.36, 1],
+      when: "beforeChildren",
+      staggerChildren: 0.1
+    }
+  })
+};
+
+const starVariants = {
+  hidden: { opacity: 0, scale: 0.5, rotate: -20 },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    rotate: 0,
+    transition: { type: "spring", stiffness: 300, damping: 20 }
+  }
+};
+
+const textVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
 
 const Testimonials: React.FC = () => {
   return (
@@ -52,28 +90,36 @@ const Testimonials: React.FC = () => {
         {reviews.map((review, idx) => (
           <MotionDiv
             key={idx}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            custom={idx}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: idx * 0.2, duration: 0.8, ease: "easeOut" }}
-            className="bg-white/5 p-12 border border-white/5 hover:border-primary/20 transition-all duration-700 group"
+            variants={cardVariants}
+            className="bg-white/5 p-12 border transition-all duration-500 group relative overflow-hidden"
           >
-            <div className="text-primary flex gap-1 mb-8">
+            <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+            
+            <div className="flex gap-1 mb-8">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={14} fill="currentColor" className="text-primary" />
+                <MotionSpan key={i} variants={starVariants}>
+                  <Star size={14} fill="currentColor" className="text-primary" />
+                </MotionSpan>
               ))}
             </div>
-            <p className="text-white/80 italic text-xl mb-12 font-serif leading-relaxed">
-              "{review.quote}"
-            </p>
-            <div>
-              <h4 className="text-white font-bold text-[10px] uppercase tracking-[0.3em] mb-1 group-hover:text-primary transition-colors">
-                {review.author}
-              </h4>
-              <p className="text-primary text-[9px] font-bold uppercase tracking-widest opacity-60">
-                {review.car}
+            
+            <MotionDiv variants={textVariants}>
+              <p className="text-white/80 italic text-xl mb-12 font-serif leading-relaxed relative z-10">
+                "{review.quote}"
               </p>
-            </div>
+              <div>
+                <h4 className="text-white font-bold text-[10px] uppercase tracking-[0.3em] mb-1 group-hover:text-primary transition-colors">
+                  {review.author}
+                </h4>
+                <p className="text-primary text-[9px] font-bold uppercase tracking-widest opacity-60">
+                  {review.car}
+                </p>
+              </div>
+            </MotionDiv>
           </MotionDiv>
         ))}
       </div>

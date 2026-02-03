@@ -27,6 +27,7 @@
               "drift": "drift 15s infinite linear",
               "spin-slow": "spin 60s linear infinite",
               "scroll-ping": "scroll-ping 2s infinite ease-in-out",
+              "button-shine": "button-shine 1.2s ease-in-out infinite",
             },
             keyframes: {
               "slow-zoom": {
@@ -47,6 +48,10 @@
                 "50%": { transform: "scaleY(1)", transformOrigin: "top", opacity: "1" },
                 "51%": { transform: "scaleY(1)", transformOrigin: "bottom" },
                 "100%": { transform: "scaleY(0)", transformOrigin: "bottom", opacity: "0" },
+              },
+              "button-shine": {
+                "0%": { transform: "translateX(-150%) skewX(-20deg)" },
+                "100%": { transform: "translateX(250%) skewX(-20deg)" },
               },
             },
           },
