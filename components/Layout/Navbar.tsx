@@ -47,8 +47,9 @@ const Navbar: React.FC = () => {
               </a>
             ))}
           </nav>
-          <button className="flex min-w-[140px] cursor-pointer items-center justify-center border border-primary/40 h-10 px-6 bg-transparent text-primary text-[10px] uppercase font-bold tracking-[0.2em] hover:bg-primary hover:text-black transition-all duration-500">
-            Inquire
+          <button className="relative overflow-hidden group flex min-w-[140px] cursor-pointer items-center justify-center border border-primary/40 h-10 px-6 bg-transparent text-primary text-[10px] uppercase font-bold tracking-[0.2em] transition-all duration-500 hover:border-primary hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:text-black">
+            <span className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"></span>
+            <span className="relative z-10">Inquire</span>
           </button>
         </div>
 
@@ -78,8 +79,9 @@ const Navbar: React.FC = () => {
             {link.name}
           </a>
         ))}
-        <button className="mt-8 border border-primary/40 h-12 px-10 text-primary text-xs uppercase font-bold tracking-[0.2em] hover:bg-primary hover:text-black transition-all duration-500">
-            Inquire Now
+        <button className="mt-8 relative overflow-hidden group border border-primary/40 h-12 px-10 text-primary text-xs uppercase font-bold tracking-[0.2em] transition-all duration-500 hover:border-primary hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:text-black">
+            <span className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"></span>
+            <span className="relative z-10">Inquire Now</span>
         </button>
       </div>
     </header>

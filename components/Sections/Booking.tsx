@@ -19,11 +19,13 @@ const Booking: React.FC = () => {
         </div>
 
         <div className="relative z-10 flex flex-col sm:flex-row gap-8">
-          <button className="bg-primary text-black px-16 h-16 font-black text-[10px] uppercase tracking-[0.4em] hover:bg-white transition-all duration-500 shadow-2xl hover:scale-105 active:scale-95">
-            Request Booking
+          <button className="relative overflow-hidden group bg-primary text-black px-16 h-16 font-black text-[10px] uppercase tracking-[0.4em] transition-all duration-500 shadow-2xl hover:scale-105 active:scale-95 hover:shadow-[0_0_40px_rgba(212,175,55,0.5)]">
+            <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+            <span className="relative z-10">Request Booking</span>
           </button>
-          <button className="bg-transparent border border-white/10 text-white px-16 h-16 font-black text-[10px] uppercase tracking-[0.4em] hover:bg-white/5 transition-all duration-500 hover:scale-105 active:scale-95">
-            Portfolio
+          <button className="relative overflow-hidden group bg-transparent border border-white/10 text-white px-16 h-16 font-black text-[10px] uppercase tracking-[0.4em] transition-all duration-500 hover:border-primary/50 hover:text-primary hover:scale-105 active:scale-95">
+            <span className="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+            <span className="relative z-10">Portfolio</span>
           </button>
         </div>
       </motion.div>
