@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elite Studio - The Art of Automotive Perfection</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#d4af37",
+              "gold-accent": "#c5a028",
+              "background-dark": "#050505",
+              obsidian: "#080808",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            animation: {
+              "slow-zoom": "slow-zoom 20s infinite alternate ease-in-out",
+              "shimmer": "shimmer 4s infinite linear",
+              "drift": "drift 15s infinite linear",
+              "spin-slow": "spin 60s linear infinite",
+              "scroll-ping": "scroll-ping 2s infinite ease-in-out",
+            },
+            keyframes: {
+              "slow-zoom": {
+                "0%": { transform: "scale(1)" },
+                "100%": { transform: "scale(1.1)" },
+              },
+              shimmer: {
+                "0%": { backgroundPosition: "-200% 0" },
+                "100%": { backgroundPosition: "200% 0" },
+              },
+              drift: {
+                "0%": { transform: "translate(0, 0) rotate(0deg)", opacity: "0" },
+                "50%": { opacity: "0.3" },
+                "100%": { transform: "translate(100px, -100px) rotate(360deg)", opacity: "0" },
+              },
+              "scroll-ping": {
+                "0%": { transform: "scaleY(0)", transformOrigin: "top", opacity: "0" },
+                "50%": { transform: "scaleY(1)", transformOrigin: "top", opacity: "1" },
+                "51%": { transform: "scaleY(1)", transformOrigin: "bottom" },
+                "100%": { transform: "scaleY(0)", transformOrigin: "bottom", opacity: "0" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .text-shadow-sm {
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .bokeh {
+          position: absolute;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(212,175,55,0.2) 0%, rgba(212,175,55,0) 70%);
+          filter: blur(20px);
+          pointer-events: none;
+          animation: drift 15s infinite linear;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.30.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+</head>
+  <body class="bg-background-dark font-display text-white antialiased overflow-x-hidden">
+    <div id="root"></div>
+  </body>
+</html>
