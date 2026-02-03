@@ -147,50 +147,53 @@ const Navbar: React.FC = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed inset-0 bg-obsidian z-40 flex flex-col items-center pt-32 pb-12 px-6 lg:hidden overflow-y-auto"
+            className="fixed inset-0 bg-obsidian z-40 flex flex-col items-center lg:hidden overflow-y-auto"
             style={{ transformOrigin: "top" }}
           >
             {/* Background Texture */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05)_0%,rgba(0,0,0,0)_70%)] pointer-events-none"></div>
+            <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05)_0%,rgba(0,0,0,0)_70%)] pointer-events-none"></div>
 
-            <MotionDiv 
-              variants={containerVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="w-full flex flex-col items-center gap-10 my-auto"
-            >
-              {navLinks.map((link) => (
-                <MotionA
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  variants={itemVariants}
-                  className="text-white text-3xl font-serif italic tracking-wide hover:text-primary transition-colors relative group"
-                >
-                  <span className="absolute -left-8 top-1/2 -translate-y-1/2 w-0 h-px bg-primary group-hover:w-4 transition-all duration-300 opacity-0 group-hover:opacity-100"></span>
-                  {link.name}
-                  <span className="absolute -right-8 top-1/2 -translate-y-1/2 w-0 h-px bg-primary group-hover:w-4 transition-all duration-300 opacity-0 group-hover:opacity-100"></span>
-                </MotionA>
-              ))}
-              
-              <MotionDiv variants={itemVariants} className="mt-4">
-                <button className="relative overflow-hidden group border border-primary/40 h-14 px-12 text-primary text-xs uppercase font-bold tracking-[0.2em] transition-all duration-500 hover:border-primary hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:text-black bg-transparent">
-                    <span className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"></span>
-                    <span className="relative z-10">Inquire Now</span>
-                </button>
+            {/* Scrollable Content Wrapper with Min-Height for Centering */}
+            <div className="min-h-full w-full flex flex-col items-center justify-center pt-24 pb-12 px-6 relative z-10">
+              <MotionDiv 
+                variants={containerVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="w-full flex flex-col items-center gap-10"
+              >
+                {navLinks.map((link) => (
+                  <MotionA
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    variants={itemVariants}
+                    className="text-white text-3xl font-serif italic tracking-wide hover:text-primary transition-colors relative group"
+                  >
+                    <span className="absolute -left-8 top-1/2 -translate-y-1/2 w-0 h-px bg-primary group-hover:w-4 transition-all duration-300 opacity-0 group-hover:opacity-100"></span>
+                    {link.name}
+                    <span className="absolute -right-8 top-1/2 -translate-y-1/2 w-0 h-px bg-primary group-hover:w-4 transition-all duration-300 opacity-0 group-hover:opacity-100"></span>
+                  </MotionA>
+                ))}
+                
+                <MotionDiv variants={itemVariants} className="mt-4">
+                  <button className="relative overflow-hidden group border border-primary/40 h-14 px-12 text-primary text-xs uppercase font-bold tracking-[0.2em] transition-all duration-500 hover:border-primary hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:text-black bg-transparent">
+                      <span className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"></span>
+                      <span className="relative z-10">Inquire Now</span>
+                  </button>
+                </MotionDiv>
               </MotionDiv>
-            </MotionDiv>
 
-            <MotionDiv 
-              variants={itemVariants} 
-              className="mt-auto pt-12 flex flex-col items-center gap-4 text-center"
-            >
-               <div className="w-px h-12 bg-gradient-to-b from-white/20 to-transparent"></div>
-               <p className="text-white/20 text-[9px] uppercase tracking-[0.3em] font-light">
-                Los Angeles &bull; Bel-Air &bull; Malibu
-              </p>
-            </MotionDiv>
+              <MotionDiv 
+                variants={itemVariants} 
+                className="mt-16 flex flex-col items-center gap-4 text-center"
+              >
+                <div className="w-px h-12 bg-gradient-to-b from-white/20 to-transparent"></div>
+                <p className="text-white/20 text-[9px] uppercase tracking-[0.3em] font-light">
+                  Los Angeles &bull; Bel-Air &bull; Malibu
+                </p>
+              </MotionDiv>
+            </div>
           </MotionDiv>
         )}
       </AnimatePresence>
