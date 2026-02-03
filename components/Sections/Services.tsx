@@ -27,65 +27,73 @@ const services = [
 
 const Services: React.FC = () => {
   return (
-    <section className="w-full max-w-[1400px] mx-auto px-6 md:px-20 py-32" id="services">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-        <MotionDiv
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col gap-6"
-        >
-          <span className="text-primary font-bold uppercase tracking-[0.5em] text-[10px]">
-            Curated Services
-          </span>
-          <h2 className="text-white text-5xl md:text-6xl font-serif">The Collection</h2>
-        </MotionDiv>
-        <MotionP
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-white/40 max-w-[450px] font-light text-lg leading-relaxed"
-        >
-          Redefining automotive preservation through technical mastery and obsessive attention to detail.
-        </MotionP>
+    <section className="w-full relative py-32 overflow-hidden" id="services">
+      {/* Ambient Background Effects */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute -top-[10%] -left-[10%] w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] animate-float opacity-30"></div>
+        <div className="absolute top-[40%] -right-[10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-float-delayed opacity-20"></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-        {services.map((service, idx) => (
+      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-20 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <MotionDiv
-            key={idx}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.9, delay: idx * 0.2, ease: "easeOut" }}
-            className="group flex flex-col bg-transparent"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col gap-6"
           >
-            <div className="relative aspect-[3/4] overflow-hidden mb-8">
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-700 z-10"></div>
-              <img
-                src={service.img}
-                alt={service.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s] ease-out"
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col gap-4">
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-white text-2xl font-serif group-hover:text-primary transition-colors duration-500">
-                  {service.title}
-                </h3>
-                <span className="text-primary text-[10px] font-bold tracking-widest uppercase">
-                  {service.tier}
-                </span>
-              </div>
-              <p className="text-white/40 text-sm leading-relaxed font-light">
-                {service.desc}
-              </p>
-            </div>
+            <span className="text-primary font-bold uppercase tracking-[0.5em] text-[10px]">
+              Curated Services
+            </span>
+            <h2 className="text-white text-5xl md:text-6xl font-serif">The Collection</h2>
           </MotionDiv>
-        ))}
+          <MotionP
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-white/40 max-w-[450px] font-light text-lg leading-relaxed"
+          >
+            Redefining automotive preservation through technical mastery and obsessive attention to detail.
+          </MotionP>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          {services.map((service, idx) => (
+            <MotionDiv
+              key={idx}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.9, delay: idx * 0.2, ease: "easeOut" }}
+              className="group flex flex-col bg-transparent"
+            >
+              <div className="relative aspect-[3/4] overflow-hidden mb-8">
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-700 z-10"></div>
+                <img
+                  src={service.img}
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s] ease-out"
+                  loading="lazy"
+                />
+              </div>
+              <div className="flex flex-col gap-4">
+                <div className="flex justify-between items-baseline">
+                  <h3 className="text-white text-2xl font-serif group-hover:text-primary transition-colors duration-500">
+                    {service.title}
+                  </h3>
+                  <span className="text-primary text-[10px] font-bold tracking-widest uppercase">
+                    {service.tier}
+                  </span>
+                </div>
+                <p className="text-white/40 text-sm leading-relaxed font-light">
+                  {service.desc}
+                </p>
+              </div>
+            </MotionDiv>
+          ))}
+        </div>
       </div>
     </section>
   );

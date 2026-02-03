@@ -62,66 +62,74 @@ const textVariants = {
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="w-full max-w-[1400px] mx-auto px-6 md:px-20 py-32" id="reviews">
-      <MotionDiv 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-center text-center mb-24 gap-8"
-      >
-        <span className="text-primary font-bold uppercase tracking-[0.5em] text-[10px]">
-          Client Narratives
-        </span>
-        <h2 className="text-white text-5xl md:text-6xl font-serif">The Standard of Excellence</h2>
-        <div className="flex gap-12 mt-4">
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-white text-2xl font-serif">4.9</span>
-            <span className="text-white/30 text-[9px] uppercase tracking-[0.3em]">Google</span>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-white text-2xl font-serif">5.0</span>
-            <span className="text-white/30 text-[9px] uppercase tracking-[0.3em]">Yelp</span>
-          </div>
-        </div>
-      </MotionDiv>
+    <section className="w-full relative py-32 overflow-hidden" id="reviews">
+       {/* Ambient Background Effects */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+         <div className="absolute top-[20%] left-[-20%] w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-[150px] animate-float opacity-20"></div>
+         <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] animate-float-delayed opacity-20"></div>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-        {reviews.map((review, idx) => (
-          <MotionDiv
-            key={idx}
-            custom={idx}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={cardVariants}
-            className="bg-white/5 p-12 border transition-all duration-500 group relative overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-            
-            <div className="flex gap-1 mb-8">
-              {[...Array(5)].map((_, i) => (
-                <MotionSpan key={i} variants={starVariants}>
-                  <Star size={14} fill="currentColor" className="text-primary" />
-                </MotionSpan>
-              ))}
+      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-20 relative z-10">
+        <MotionDiv 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center text-center mb-24 gap-8"
+        >
+          <span className="text-primary font-bold uppercase tracking-[0.5em] text-[10px]">
+            Client Narratives
+          </span>
+          <h2 className="text-white text-5xl md:text-6xl font-serif">The Standard of Excellence</h2>
+          <div className="flex gap-12 mt-4">
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-white text-2xl font-serif">4.9</span>
+              <span className="text-white/30 text-[9px] uppercase tracking-[0.3em]">Google</span>
             </div>
-            
-            <MotionDiv variants={textVariants}>
-              <p className="text-white/80 italic text-xl mb-12 font-serif leading-relaxed relative z-10">
-                "{review.quote}"
-              </p>
-              <div>
-                <h4 className="text-white font-bold text-[10px] uppercase tracking-[0.3em] mb-1 group-hover:text-primary transition-colors">
-                  {review.author}
-                </h4>
-                <p className="text-primary text-[9px] font-bold uppercase tracking-widest opacity-60">
-                  {review.car}
-                </p>
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-white text-2xl font-serif">5.0</span>
+              <span className="text-white/30 text-[9px] uppercase tracking-[0.3em]">Yelp</span>
+            </div>
+          </div>
+        </MotionDiv>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {reviews.map((review, idx) => (
+            <MotionDiv
+              key={idx}
+              custom={idx}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={cardVariants}
+              className="bg-white/5 p-12 border transition-all duration-500 group relative overflow-hidden backdrop-blur-sm"
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              
+              <div className="flex gap-1 mb-8">
+                {[...Array(5)].map((_, i) => (
+                  <MotionSpan key={i} variants={starVariants}>
+                    <Star size={14} fill="currentColor" className="text-primary" />
+                  </MotionSpan>
+                ))}
               </div>
+              
+              <MotionDiv variants={textVariants}>
+                <p className="text-white/80 italic text-xl mb-12 font-serif leading-relaxed relative z-10">
+                  "{review.quote}"
+                </p>
+                <div>
+                  <h4 className="text-white font-bold text-[10px] uppercase tracking-[0.3em] mb-1 group-hover:text-primary transition-colors">
+                    {review.author}
+                  </h4>
+                  <p className="text-primary text-[9px] font-bold uppercase tracking-widest opacity-60">
+                    {review.car}
+                  </p>
+                </div>
+              </MotionDiv>
             </MotionDiv>
-          </MotionDiv>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
