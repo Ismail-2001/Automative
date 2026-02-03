@@ -131,7 +131,7 @@ const ServiceArea: React.FC = () => {
                     placeholder="CHECK YOUR LOCATION" 
                     className="bg-transparent border-none focus:ring-0 text-[10px] tracking-[0.3em] font-bold text-white placeholder:text-white/20 w-full uppercase outline-none"
                   />
-                  <button className="text-primary hover:text-white transition-colors">
+                  <button className="text-primary hover:text-white transition-colors" aria-label="Use current location">
                     <Crosshair size={18} />
                   </button>
                 </div>

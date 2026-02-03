@@ -24,7 +24,8 @@ const Footer: React.FC = () => {
             <div className="flex items-center gap-0 border-b border-primary/30 focus-within:border-primary transition-all duration-500 group">
               <input 
                 type="email" 
-                placeholder="YOUR EMAIL ADDRESS" 
+                placeholder="YOUR EMAIL ADDRESS"
+                aria-label="Email address for newsletter"
                 className="bg-transparent border-none text-[10px] tracking-[0.3em] font-bold text-white placeholder:text-white/20 w-full md:w-80 px-0 py-4 focus:ring-0 uppercase outline-none"
               />
               <button className="text-primary hover:text-white transition-colors flex items-center gap-3 px-4 py-4 group relative overflow-hidden">
@@ -49,8 +50,17 @@ const Footer: React.FC = () => {
               </p>
             </div>
             <div className="flex gap-6">
-              {[Instagram, Facebook, Twitter].map((Icon, i) => (
-                <a key={i} href="#" className="text-primary/60 hover:text-primary transition-all duration-300 transform hover:-translate-y-1">
+              {[
+                { Icon: Instagram, label: "Instagram" },
+                { Icon: Facebook, label: "Facebook" },
+                { Icon: Twitter, label: "Twitter" }
+              ].map(({ Icon, label }, i) => (
+                <a 
+                  key={i} 
+                  href="#" 
+                  aria-label={`Follow us on ${label}`}
+                  className="text-primary/60 hover:text-primary transition-all duration-300 transform hover:-translate-y-1"
+                >
                   <Icon size={16} />
                 </a>
               ))}
@@ -115,7 +125,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="mt-32 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-white/10 text-[9px] tracking-[0.4em] uppercase">© 2024 ELITE STUDIO LLC. REGISTERED TRADEMARK. ALL RIGHTS RESERVED.</p>
-          <button onClick={scrollToTop} className="flex flex-col items-center gap-3 group">
+          <button onClick={scrollToTop} aria-label="Scroll to top" className="flex flex-col items-center gap-3 group">
             <span className="text-white/20 text-[8px] tracking-[0.5em] uppercase group-hover:text-primary transition-colors">Back to Top</span>
             <div className="w-10 h-10 border border-primary/20 rounded-full flex items-center justify-center group-hover:border-primary group-hover:bg-primary/5 transition-all duration-500">
               <ArrowUp size={16} className="text-primary animate-bounce" />

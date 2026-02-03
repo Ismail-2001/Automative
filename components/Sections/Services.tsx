@@ -64,10 +64,12 @@ const Services: React.FC = () => {
           >
             <div className="relative aspect-[3/4] overflow-hidden mb-8">
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-700 z-10"></div>
-              <div
-                className="w-full h-full bg-center bg-cover group-hover:scale-110 transition-transform duration-[2s] ease-out"
-                style={{ backgroundImage: `url("${service.img}")` }}
-              ></div>
+              <img
+                src={service.img}
+                alt={service.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s] ease-out"
+                loading="lazy"
+              />
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex justify-between items-baseline">
