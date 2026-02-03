@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
         <img
           alt="Luxury Car Detail"
           className="w-full h-full object-cover"
-          src="https://picsum.photos/1920/1080?grayscale&blur=2"
+          src="https://images.unsplash.com/photo-1503376763036-066120622c74?q=80&w=1920&auto=format&fit=crop"
         />
       </div>
 

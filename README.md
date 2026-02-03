@@ -1,7 +1,7 @@
 # Elite Studio - The Art of Automotive Perfection
 
 <div align="center">
-  <img src="https://picsum.photos/1200/400?grayscale&blur=2" alt="Elite Studio Banner" width="100%" />
+  <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=1200&auto=format&fit=crop" alt="Elite Studio Banner" width="100%" />
   <br />
   <br />
   <p>
@@ -40,7 +40,7 @@ Unlike standard service websites, Elite Studio prioritizes atmosphere, brand pre
 
 ### Assets
 *   **Fonts:** Google Fonts (Inter, Playfair Display)
-*   **Images:** Placeholder integration via Picsum (Production ready for WebP/AVIF assets)
+*   **Images:** Unsplash integration with curated luxury automotive photography.
 
 ## 4. Architecture
 

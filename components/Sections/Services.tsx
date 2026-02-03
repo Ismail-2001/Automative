@@ -9,19 +9,19 @@ const services = [
     title: "Interior Restoration",
     tier: "Tier I",
     desc: "Deep fiber extraction and pH-balanced heritage leather conditioning.",
-    img: "https://picsum.photos/600/800?random=1&grayscale",
+    img: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=600&auto=format&fit=crop",
   },
   {
     title: "Surface Correction",
     tier: "Tier II",
     desc: "Multi-stage orbital correction to achieve a flawless mirror-like clarity.",
-    img: "https://picsum.photos/600/800?random=2&grayscale",
+    img: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=600&auto=format&fit=crop",
   },
   {
     title: "Nanotech Shield",
     tier: "Tier III",
     desc: "Permanent ceramic bonding for extreme hydrophobic self-cleaning properties.",
-    img: "https://picsum.photos/600/800?random=3&grayscale",
+    img: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=600&auto=format&fit=crop",
   },
 ];
 

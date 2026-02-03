@@ -95,7 +95,7 @@ const ServiceArea: React.FC = () => {
               <div 
                 className="absolute inset-0 opacity-40 grayscale contrast-125 transition-transform duration-[10s] ease-linear group-hover:scale-105"
                 style={{ 
-                  backgroundImage: "url('https://picsum.photos/1200/800?grayscale&blur=2')",
+                  backgroundImage: "url('https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?q=80&w=1200&auto=format&fit=crop')",
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}
