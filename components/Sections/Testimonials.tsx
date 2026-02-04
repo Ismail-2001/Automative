@@ -23,19 +23,21 @@ const reviews = [
 const cardVariants = {
   hidden: { 
     opacity: 0, 
-    y: 40,
+    y: 50,
+    scale: 0.95,
     borderColor: 'rgba(255, 255, 255, 0.05)',
-    boxShadow: '0 0 0 rgba(212, 175, 55, 0)'
+    boxShadow: '0 0 0 0 rgba(0,0,0,0)'
   },
   visible: (i: number) => ({ 
     opacity: 1, 
     y: 0,
-    borderColor: 'rgba(212, 175, 55, 0.15)', // Subtle gold border on entry
-    boxShadow: '0 0 20px rgba(212, 175, 55, 0.05)', // Subtle glow
+    scale: 1,
+    borderColor: 'rgba(212, 175, 55, 0.3)', // Distinct gold border
+    boxShadow: '0 10px 40px -10px rgba(212, 175, 55, 0.1)', // Luxurious glow
     transition: { 
       delay: i * 0.2, 
-      duration: 0.8, 
-      ease: [0.22, 1, 0.36, 1],
+      duration: 1.0, 
+      ease: [0.22, 1, 0.36, 1], // Custom "Expo Out" for premium feel
       when: "beforeChildren",
       staggerChildren: 0.1
     }
@@ -43,18 +45,19 @@ const cardVariants = {
 };
 
 const starVariants = {
-  hidden: { opacity: 0, scale: 0.5, rotate: -20 },
+  hidden: { opacity: 0, scale: 0, y: 10, rotate: -45 },
   visible: { 
     opacity: 1, 
     scale: 1, 
+    y: 0,
     rotate: 0,
-    transition: { type: "spring", stiffness: 300, damping: 20 }
+    transition: { type: "spring", stiffness: 400, damping: 15 } // Bouncy spring effect
   }
 };
 
 const textVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
 const Testimonials: React.FC = () => {
@@ -97,7 +100,7 @@ const Testimonials: React.FC = () => {
               custom={idx}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "-100px" }}
               variants={cardVariants}
               className="bg-white/5 p-12 border transition-all duration-500 group relative overflow-hidden backdrop-blur-sm"
             >
