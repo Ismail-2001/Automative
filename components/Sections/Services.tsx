@@ -1,9 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const MotionDiv = motion.div as any;
-const MotionP = motion.p as any;
-
 const services = [
   {
     title: "Interior Restoration",
@@ -36,7 +33,7 @@ const Services: React.FC = () => {
 
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-20 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-          <MotionDiv
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -47,8 +44,8 @@ const Services: React.FC = () => {
               Curated Services
             </span>
             <h2 className="text-white text-5xl md:text-6xl font-serif">The Collection</h2>
-          </MotionDiv>
-          <MotionP
+          </motion.div>
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -56,12 +53,12 @@ const Services: React.FC = () => {
             className="text-white/40 max-w-[450px] font-light text-lg leading-relaxed"
           >
             Redefining automotive preservation through technical mastery and obsessive attention to detail.
-          </MotionP>
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           {services.map((service, idx) => (
-            <MotionDiv
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -91,7 +88,7 @@ const Services: React.FC = () => {
                   {service.desc}
                 </p>
               </div>
-            </MotionDiv>
+            </motion.div>
           ))}
         </div>
       </div>

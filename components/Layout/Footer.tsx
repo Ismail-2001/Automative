@@ -21,19 +21,27 @@ const Footer: React.FC = () => {
             <h3 className="text-white text-3xl md:text-4xl font-serif">Stay Informed on the Art of Automotive Perfection</h3>
           </div>
           <div className="w-full md:w-auto">
-            <div className="flex items-center gap-0 border-b border-primary/30 focus-within:border-primary transition-all duration-500 group">
+            {/* Formspree Integration */}
+            {/* REPLACE ACTION URL WITH YOUR FORMSPREE ID */}
+            <form 
+              action="https://formspree.io/f/mqazqgzd" 
+              method="POST" 
+              className="flex items-center gap-0 border-b border-primary/30 focus-within:border-primary transition-all duration-500 group"
+            >
               <input 
+                name="email"
                 type="email" 
                 placeholder="YOUR EMAIL ADDRESS"
+                required
                 aria-label="Email address for newsletter"
                 className="bg-transparent border-none text-[10px] tracking-[0.3em] font-bold text-white placeholder:text-white/20 w-full md:w-80 px-0 py-4 focus:ring-0 uppercase outline-none"
               />
-              <button className="text-primary hover:text-white transition-colors flex items-center gap-3 px-4 py-4 group relative overflow-hidden">
+              <button type="submit" className="text-primary hover:text-white transition-colors flex items-center gap-3 px-4 py-4 group relative overflow-hidden">
                 <span className="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                 <span className="relative z-10 text-[10px] font-bold tracking-[0.4em] uppercase">Join</span>
                 <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
               </button>
-            </div>
+            </form>
           </div>
         </div>
 

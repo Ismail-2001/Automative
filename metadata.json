@@ -1,5 +1,17 @@
 {
   "name": "Elite Studio",
+  "short_name": "Elite",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#d4af37",
   "description": "A premium, high-end mobile detailing web application featuring bespoke animations, luxury aesthetics, and a responsive design.",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/744/744465.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
   "requestFramePermissions": []
 }

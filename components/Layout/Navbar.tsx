@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const MotionDiv = motion.div as any;
-const MotionA = motion.a as any;
-
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -142,7 +139,7 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <MotionDiv
+          <motion.div
             variants={menuVariants}
             initial="initial"
             animate="animate"
@@ -155,7 +152,7 @@ const Navbar: React.FC = () => {
 
             {/* Scrollable Content Wrapper with Min-Height for Centering */}
             <div className="min-h-full w-full flex flex-col items-center justify-center pt-24 pb-12 px-6 relative z-10">
-              <MotionDiv 
+              <motion.div 
                 variants={containerVariants}
                 initial="initial"
                 animate="animate"
@@ -163,7 +160,7 @@ const Navbar: React.FC = () => {
                 className="w-full flex flex-col items-center gap-10"
               >
                 {navLinks.map((link) => (
-                  <MotionA
+                  <motion.a
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -173,18 +170,18 @@ const Navbar: React.FC = () => {
                     <span className="absolute -left-8 top-1/2 -translate-y-1/2 w-0 h-px bg-primary group-hover:w-4 transition-all duration-300 opacity-0 group-hover:opacity-100"></span>
                     {link.name}
                     <span className="absolute -right-8 top-1/2 -translate-y-1/2 w-0 h-px bg-primary group-hover:w-4 transition-all duration-300 opacity-0 group-hover:opacity-100"></span>
-                  </MotionA>
+                  </motion.a>
                 ))}
                 
-                <MotionDiv variants={itemVariants} className="mt-4">
+                <motion.div variants={itemVariants} className="mt-4">
                   <button className="relative overflow-hidden group border border-primary/40 h-14 px-12 text-primary text-xs uppercase font-bold tracking-[0.2em] transition-all duration-500 hover:border-primary hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:text-black bg-transparent">
                       <span className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"></span>
                       <span className="relative z-10">Inquire Now</span>
                   </button>
-                </MotionDiv>
-              </MotionDiv>
+                </motion.div>
+              </motion.div>
 
-              <MotionDiv 
+              <motion.div 
                 variants={itemVariants} 
                 className="mt-16 flex flex-col items-center gap-4 text-center"
               >
@@ -192,9 +189,9 @@ const Navbar: React.FC = () => {
                 <p className="text-white/20 text-[9px] uppercase tracking-[0.3em] font-light">
                   Los Angeles &bull; Bel-Air &bull; Malibu
                 </p>
-              </MotionDiv>
+              </motion.div>
             </div>
-          </MotionDiv>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>

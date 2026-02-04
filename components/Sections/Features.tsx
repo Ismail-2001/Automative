@@ -2,8 +2,6 @@ import React from 'react';
 import { Award, ShieldCheck, Sparkles, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const MotionDiv = motion.div as any;
-
 const features = [
   { 
     id: "01",
@@ -39,7 +37,7 @@ const Features: React.FC = () => {
 
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4">
         {features.map((feature, idx) => (
-          <MotionDiv
+          <motion.div
             key={idx}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -76,7 +74,7 @@ const Features: React.FC = () => {
             <p className="text-white/40 font-light text-xs leading-relaxed tracking-wide max-w-[200px]">
               {feature.desc}
             </p>
-          </MotionDiv>
+          </motion.div>
         ))}
       </div>
     </section>

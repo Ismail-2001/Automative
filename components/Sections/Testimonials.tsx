@@ -2,9 +2,6 @@ import React from 'react';
 import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const MotionDiv = motion.div as any;
-const MotionSpan = motion.span as any;
-
 const reviews = [
   {
     quote: "The ceramic coating transformed my 911. The depth of color is now beyond what I thought possible.",
@@ -70,7 +67,7 @@ const Testimonials: React.FC = () => {
       </div>
 
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-20 relative z-10">
-        <MotionDiv 
+        <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -91,11 +88,11 @@ const Testimonials: React.FC = () => {
               <span className="text-white/30 text-[9px] uppercase tracking-[0.3em]">Yelp</span>
             </div>
           </div>
-        </MotionDiv>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {reviews.map((review, idx) => (
-            <MotionDiv
+            <motion.div
               key={idx}
               custom={idx}
               initial="hidden"
@@ -108,13 +105,13 @@ const Testimonials: React.FC = () => {
               
               <div className="flex gap-1 mb-8">
                 {[...Array(5)].map((_, i) => (
-                  <MotionSpan key={i} variants={starVariants}>
+                  <motion.span key={i} variants={starVariants}>
                     <Star size={14} fill="currentColor" className="text-primary" />
-                  </MotionSpan>
+                  </motion.span>
                 ))}
               </div>
               
-              <MotionDiv variants={textVariants}>
+              <motion.div variants={textVariants}>
                 <p className="text-white/80 italic text-xl mb-12 font-serif leading-relaxed relative z-10">
                   "{review.quote}"
                 </p>
@@ -126,8 +123,8 @@ const Testimonials: React.FC = () => {
                     {review.car}
                   </p>
                 </div>
-              </MotionDiv>
-            </MotionDiv>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>
